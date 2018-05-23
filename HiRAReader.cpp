@@ -24,7 +24,7 @@ fSiHiLowMatched(false)
     fHiRAReader = new TTreeReader(fChain);
     for(int i=0; i<NUM_TEL; i++)
     {
-      ftele[i]=new TTreeReaderValue<HTHiRAData>(*fHiRAReader, Form("HiRA.tele%d.",i));
+      ftele[i]=new TTreeReaderValue<RBHiRATelescope>(*fHiRAReader, Form("HiRA.tele%d.",i));
     }
   }
   fGeometryTab=new HiRAGeometry[NUM_TEL*NUM_STRIP_F*NUM_STRIP_B];
@@ -394,7 +394,7 @@ void HiRAReader::Loop(const char * file_name, Long64_t evt_amount)
     //Loop on HiRA telescopes
     for(int i=0; i<12; i++)
     {
-      HTHiRAData * HiRATel = ftele[i]->Get();
+      RBHiRATelescope * HiRATel = ftele[i]->Get();
     }
     jentry++;
   }

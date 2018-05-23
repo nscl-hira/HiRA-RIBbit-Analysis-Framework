@@ -21,7 +21,7 @@
 #include <TMultiGraph.h>
 #include <TLatex.h>
 #include <TCanvas.h>
-#include <HTHiRARootEvent.h>
+#include <RBHiRATelescope.h>
 #include <HiRAGeometry.h>
 #include <HiRASiCalibration.h>
 #include <HiRACsICalibration.h>
@@ -68,7 +68,7 @@ public :
 
 private :
   TTreeReader * fHiRAReader;
-  TTreeReaderValue<HTHiRAData> *ftele[12];
+  TTreeReaderValue<RBHiRATelescope> *ftele[12];
   TChain      * fChain;
 
   EnergyLossModule fLISEModule;
