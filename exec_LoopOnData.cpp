@@ -11,7 +11,7 @@
 int main (int argc, char ** argv)
 {
   if(argc<=1) return -1;
-  std::string data_path("/mnt/analysis/e15190/HiRAEVTMapper_rootfiles/");
+  std::string data_path("/mnt/analysis/e15190/RIBbit_rootfiles/");
   TChain *dataChain = (TChain*) new TChain("E15190");
   std::string first_run_name(argv[1]);
   int first_run = atoi(first_run_name.c_str());
@@ -28,7 +28,7 @@ int main (int argc, char ** argv)
   for(int i=first_run; i<=last_run; i++)
   {
     char file_evt[100];
-    sprintf (file_evt,"run-%04d.root",i);
+    sprintf (file_evt,"run-%04d-*.root",i);
     std::string file_evt_string(file_evt);
     std::string path_to_evt_file(data_path+file_evt_string);
     int n_files = dataChain->Add((data_path+file_evt).c_str());
