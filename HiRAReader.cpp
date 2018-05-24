@@ -1,4 +1,5 @@
 #include "include/HiRAReader.h"
+#include "include/RBHiRATelescope.h"
 
 // ASSUMPTIONS
 const int NUM_TEL = 12;
@@ -24,7 +25,7 @@ fSiHiLowMatched(false)
     fHiRAReader = new TTreeReader(fChain);
     for(int i=0; i<NUM_TEL; i++)
     {
-      ftele[i]=new TTreeReaderValue<RBHiRATelescope>(*fHiRAReader, Form("HiRA.tele%d.",i));
+      ftele[i]=new TTreeReaderValue<RBHiRATelescope>(*fHiRAReader, Form("tele%d",i));
     }
   }
   fGeometryTab=new HiRAGeometry[NUM_TEL*NUM_STRIP_F*NUM_STRIP_B];

@@ -21,12 +21,12 @@
 #include <TMultiGraph.h>
 #include <TLatex.h>
 #include <TCanvas.h>
-#include <RBHiRATelescope.h>
-#include <HiRAGeometry.h>
-#include <HiRASiCalibration.h>
-#include <HiRACsICalibration.h>
-#include <HiRASiHiLowMatching.h>
-#include <EnergyLossModule.h>
+#include "RBHiRATelescope.h"
+#include "HiRAGeometry.h"
+#include "HiRASiCalibration.h"
+#include "HiRACsICalibration.h"
+#include "HiRASiHiLowMatching.h"
+#include "EnergyLossModule.h"
 
 class HiRAReader
 {

@@ -1,28 +1,9 @@
-#include <HiRAReader.h>
-#include <TTreeReader.h>
-#include <TTreeReaderValue.h>
-#include <TFile.h>
-#include <TTree.h>
-#include <TString.h>
-#include <TChain.h>
-#include <TH2.h>
-#include <iostream>
-
-int main (int argc, char ** argv)
-{
-  if(argc<=1) return -1;
+void macro_LoopOnData(int first_run, int last_run=-1, int evt_amount=0)
+{ 
   std::string data_path("/mnt/analysis/e15190/RIBbit_rootfiles/");
   TChain *dataChain = (TChain*) new TChain("E15190");
-  std::string first_run_name(argv[1]);
-  int first_run = atoi(first_run_name.c_str());
-  int last_run=first_run;
-  Long64_t evt_amount=0;
-  if(argc==4) {
-    evt_amount=atoi(argv[3]);
-  }
-  if(argc>2) {
-    std::string last_run_name(argv[2]);
-    last_run = atoi(last_run_name.c_str());
+  if(last_run==-1) {
+    last_run=first_run;
   }
   // Adding all the files to the TChain ================================
   for(int i=first_run; i<=last_run; i++)
